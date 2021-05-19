@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Input, Checkbox, Button, Loader } from "semantic-ui-react";
+import { API_KEY } from "./Contstants";
 
 export const Giphygram = ({ state, setState }) => {
   const [load, setLoad] = useState(true);
@@ -8,12 +9,12 @@ export const Giphygram = ({ state, setState }) => {
   const [inputValue, setInputValue] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [checked, setChecked] = useState(false);
+  const api_url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchValue}&limit=10&offset=${offset}&rating=G&lang=en`;
 
-  const api = `https://api.giphy.com/v1/gifs/search?api_key=CdRKiCMbTnt9CkZTZ0lGukSczk6iT4Z6&q=${searchValue}&limit=10&offset=${offset}&rating=G&lang=en`;
   const getData = () => {
     if (searchValue && load) {
       setLoading(true);
-      fetch(api)
+      fetch(api_url)
         .then((response) => response.json())
         .then(
           (response) => {
@@ -34,12 +35,11 @@ export const Giphygram = ({ state, setState }) => {
         );
     }
   };
+
   useEffect(() => {
     getData();
     setLoad(false);
-  }, [load]);
 
-  useEffect(() => {
     const list = document.querySelector(".list");
     window.addEventListener("scroll", () => {
       if (
@@ -49,11 +49,10 @@ export const Giphygram = ({ state, setState }) => {
         setLoad(true);
       }
     });
-  });
+  }, [load]);
 
   useEffect(() => {
     const list = document.querySelector(".list");
-
     if (list.clientHeight <= window.innerHeight && list.clientHeight) {
       setLoad(true);
     }

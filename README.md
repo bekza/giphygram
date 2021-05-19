@@ -32,3 +32,4 @@ Made with love by Bekzat Omrzakov
 - Improve styling
 - Show more info like: name of the giphy and date posted etc.
 - Add Routing
+- Add Error handling
