@@ -13,7 +13,10 @@ code {
 }
 
 .App {
-  margin: 0 10%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 * {
@@ -26,16 +29,19 @@ li {
   width: 100%;
   height: 200px;
   background-size: cover;
+  border: 1px solid rgb(214, 214, 214);
 }
 
-#block {
-  width: 100%;
-  height: 700px;
-}
-
-#list {
-  max-width: 300px;
+.list {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.search-form,
+.display-toggle {
+  margin-bottom: 20px;
+}
+.search-input {
+  margin-right: 10px;
 }

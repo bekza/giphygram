@@ -20,3 +20,15 @@ Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 Made with love by Bekzat Omrzakov
+
+---
+
+##### Things I would improve:
+
+- Integrate Typescript
+- Seperate Presentational and Container componenents
+- Integrate Redux
+- Increase to 100% test coverages
+- Improve styling
+- Show more info like: name of the giphy and date posted etc.
+- Add Routing
