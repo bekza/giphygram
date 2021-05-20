@@ -15,7 +15,13 @@ describe("Giphygram", () => {
   it("should render Giphygram", () => {
     expect(wrapper.exists()).toBe(true);
   });
-  it("should render list", () => {
-    expect(wrapper.find(".list").children()).toHaveLength(5);
+  it("should render Header", () => {
+    expect(wrapper.find("Header").exists()).toBe(true);
+    expect(wrapper.find("Header").prop("inputValue")).toEqual("");
+  });
+  it("should render List", () => {
+    expect(wrapper.find("List").exists()).toBe(true);
+    expect(wrapper.find("List").prop("loading")).toBe(false);
+    expect(wrapper.find("List").prop("checked")).toBe(false);
   });
 });

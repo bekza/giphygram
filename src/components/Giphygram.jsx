@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Loader } from "semantic-ui-react";
 import { Header } from "./Header";
+import { List } from "./List";
 import { API_KEY } from "./Contstants";
 
 export const Giphygram = ({ state, setState }) => {
@@ -77,12 +77,7 @@ export const Giphygram = ({ state, setState }) => {
         setChecked={setChecked}
         checked={checked}
       />
-      <ul className="list" style={{ maxWidth: checked ? "700px" : "300px" }}>
-        {state.map((img, i) => (
-          <li style={{ backgroundImage: `url(${img})` }} key={i} />
-        ))}
-        {loading && <Loader size="big" active inline="centered" />}
-      </ul>
+      <List state={state} checked={checked} loading={loading} />
     </div>
   );
 };
