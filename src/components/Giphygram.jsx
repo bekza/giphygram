@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Input, Checkbox, Button, Loader } from "semantic-ui-react";
+import { Loader } from "semantic-ui-react";
+import { Header } from "./Header";
 import { API_KEY } from "./Contstants";
 
 export const Giphygram = ({ state, setState }) => {
@@ -69,24 +70,11 @@ export const Giphygram = ({ state, setState }) => {
 
   return (
     <div>
-      <h1>GIPHYGRAM</h1>
-      <form className="search-form" onSubmit={handleSearch}>
-        <Input
-          focus
-          placeholder="Search..."
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          className="search-input"
-        />
-        <Button primary disabled={!inputValue}>
-          Search
-        </Button>
-      </form>
-      <Checkbox
-        toggle
-        label="3-column display"
-        className="display-toggle"
-        onChange={() => setChecked(!checked)}
+      <Header
+        handleSearch={handleSearch}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        setChecked={setChecked}
         checked={checked}
       />
       <ul className="list" style={{ maxWidth: checked ? "700px" : "300px" }}>
